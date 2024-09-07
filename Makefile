@@ -1,0 +1,8 @@
+install: lint
+	python setup.py install --user
+
+lint:
+	ruff check ff/
+
+format:
+	black ff/
