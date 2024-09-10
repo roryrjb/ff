@@ -1,4 +1,19 @@
-from setuptools import setup, find_packages
+import subprocess
+from setuptools import Command, setup, find_packages
+
+
+class PyInstaller(Command):
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        subprocess.run(["pyinstaller", "--onefile", "--name", "ff", "cli.py"])
+
 
 setup(
     name="ff",
@@ -16,4 +31,7 @@ setup(
         ],
     },
     zip_safe=False,
+    cmdclass={
+        "build_exe": PyInstaller,
+    },
 )

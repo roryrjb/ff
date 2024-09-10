@@ -6,3 +6,6 @@ lint:
 
 format:
 	black ff/
+	
+exe:
+	python setup.py build_exe
